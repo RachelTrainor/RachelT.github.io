@@ -31,7 +31,6 @@ html {
 
 body {
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
 
@@ -63,7 +62,6 @@ img {
 
 nav {
     width: 100%;
-
     padding: 26px 7%;
 
     display: flex;
@@ -82,10 +80,8 @@ nav {
 
 .logo {
     font-family: "Cormorant Garamond", serif;
-
     font-size: 1.6rem;
     font-weight: 500;
-
     letter-spacing: 4px;
 
     transition: 0.3s;
@@ -98,7 +94,6 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-
     gap: 30px;
 
     list-style: none;
@@ -123,7 +118,6 @@ nav {
     content: "";
 
     position: absolute;
-
     left: 0;
     bottom: -7px;
 
@@ -151,7 +145,6 @@ nav {
     min-height: calc(100vh - 85px);
 
     margin: auto;
-
     padding: 80px 10%;
 
     display: flex;
@@ -186,7 +179,6 @@ nav {
 
 .hero-subtitle {
     max-width: 650px;
-
     margin-top: 45px;
 
     color: var(--muted);
@@ -197,7 +189,6 @@ nav {
 
 .hero-buttons {
     display: flex;
-
     gap: 15px;
 
     margin-top: 40px;
@@ -255,14 +246,12 @@ section {
     max-width: 1200px;
 
     margin: auto;
-
     padding: 100px 7%;
 }
 
 .section-heading {
     display: flex;
     align-items: center;
-
     gap: 25px;
 
     margin-bottom: 55px;
@@ -286,7 +275,6 @@ section {
 
 .section-line {
     flex: 1;
-
     height: 1px;
 
     background: var(--border);
@@ -310,18 +298,11 @@ section {
 
     color: var(--muted);
 
+    font-family: "Inter", sans-serif;
     font-size: 1rem;
     font-weight: 300;
+
     line-height: 1.9;
-}
-
-.about-content p:first-child {
-    color: var(--text);
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 1.8rem;
-    line-height: 1.5;
 }
 
 
@@ -331,19 +312,16 @@ section {
 
 .projects-intro {
     max-width: 700px;
-
     margin-bottom: 50px;
 }
 
 .projects-intro p {
     color: var(--muted);
-
     font-weight: 300;
 }
 
 .projects-grid {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
 
     gap: 25px;
@@ -351,7 +329,6 @@ section {
 
 .project-card {
     min-height: 330px;
-
     padding: 35px;
 
     background: var(--background-light);
@@ -371,7 +348,6 @@ section {
     transform: translateY(-5px);
 
     border-color: var(--accent);
-
     background: var(--background-hover);
 }
 
@@ -441,19 +417,16 @@ section {
 
 .skills-intro {
     max-width: 700px;
-
     margin-bottom: 50px;
 }
 
 .skills-intro p {
     color: var(--muted);
-
     font-weight: 300;
 }
 
 .skills-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
 
     gap: 25px;
@@ -461,7 +434,6 @@ section {
 
 .skill-category {
     min-height: 230px;
-
     padding: 30px;
 
     background: var(--background-light);
@@ -505,19 +477,16 @@ section {
 
 .certificate-intro {
     max-width: 700px;
-
     margin-bottom: 50px;
 }
 
 .certificate-intro p {
     color: var(--muted);
-
     font-weight: 300;
 }
 
 .certificates-grid {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
 
     gap: 30px;
@@ -543,7 +512,6 @@ section {
 
 .certificate-image {
     width: 100%;
-
     padding: 18px;
 
     background: #0d0d0d;
@@ -662,23 +630,20 @@ section {
 }
 
 
-/* Styles ready for your resume later */
+/* RESUME STYLES READY FOR LATER */
 
 .resume-intro {
     max-width: 700px;
-
     margin-bottom: 35px;
 }
 
 .resume-intro p {
     color: var(--muted);
-
     font-weight: 300;
 }
 
 .resume-actions {
     display: flex;
-
     gap: 15px;
 
     margin-bottom: 40px;
@@ -753,7 +718,6 @@ section {
 
 .contact-content > p {
     max-width: 600px;
-
     margin-bottom: 45px;
 
     color: var(--muted);
@@ -763,7 +727,6 @@ section {
 
 .contact-links {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
 
     gap: 20px;
@@ -771,7 +734,6 @@ section {
 
 .contact-card {
     min-height: 150px;
-
     padding: 25px;
 
     display: flex;
@@ -792,7 +754,6 @@ section {
     transform: translateY(-4px);
 
     border-color: var(--accent);
-
     background: var(--background-hover);
 }
 
@@ -818,7 +779,6 @@ section {
 
 footer {
     width: 100%;
-
     padding: 28px 7%;
 
     display: flex;
@@ -948,7 +908,6 @@ footer {
 
     .resume-actions {
         flex-direction: column;
-
         align-items: flex-start;
     }
 
