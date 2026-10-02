@@ -960,13 +960,14 @@ footer {
     }
    /* ABOUT TEXT OVERRIDE */
 
-.about-content p,
-.about-content p:first-child {
-    color: var(--muted) !important;
+.about-text p,
+.about-text p:first-child {
     font-family: "Inter", sans-serif !important;
     font-size: 1rem !important;
     font-weight: 300 !important;
     line-height: 1.9 !important;
+    color: var(--muted) !important;
+    letter-spacing: normal !important;
 }
    
 }
