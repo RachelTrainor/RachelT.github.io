@@ -9,6 +9,7 @@
 :root {
     --background: #121212;
     --background-light: #191919;
+    --background-hover: #1e1e1e;
     --text: #e8e4de;
     --muted: #9a9690;
     --border: #33312f;
@@ -29,10 +30,20 @@ html {
 }
 
 body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
     background-color: var(--background);
     color: var(--text);
+
     font-family: "Inter", sans-serif;
     line-height: 1.7;
+}
+
+main {
+    flex: 1;
 }
 
 a {
@@ -40,12 +51,20 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
 
-/* ---------- NAVIGATION ---------- */
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
 
 nav {
     width: 100%;
-    padding: 28px 7%;
+
+    padding: 26px 7%;
 
     display: flex;
     justify-content: space-between;
@@ -57,67 +76,107 @@ nav {
     top: 0;
     z-index: 100;
 
-    background: rgba(18, 18, 18, 0.95);
+    background: rgba(18, 18, 18, 0.96);
+    backdrop-filter: blur(8px);
 }
 
 .logo {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.5rem;
-    letter-spacing: 3px;
+
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    transition: 0.3s;
+}
+
+.logo:hover {
+    color: var(--accent);
 }
 
 .nav-links {
     display: flex;
-    gap: 35px;
+    align-items: center;
+
+    gap: 30px;
+
     list-style: none;
 }
 
 .nav-links a {
+    position: relative;
+
     color: var(--muted);
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    transition: 0.3s;
+
+    font-size: 0.78rem;
+    letter-spacing: 1.2px;
+
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: var(--text);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--accent);
+
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 
-/* ---------- HERO ---------- */
+/* ========================================
+   HOME / HERO
+   ======================================== */
 
 .hero {
-    min-height: 88vh;
+    width: 100%;
+    max-width: 1500px;
+
+    min-height: calc(100vh - 85px);
+
+    margin: auto;
+
+    padding: 80px 10%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    padding: 80px 10%;
-
-    max-width: 1500px;
-    margin: auto;
 }
 
 .hero-label {
+    margin-bottom: 22px;
+
     color: var(--accent);
 
-    text-transform: uppercase;
+    font-size: 0.72rem;
     letter-spacing: 4px;
 
-    font-size: 0.75rem;
-
-    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .hero h1 {
     font-family: "Cormorant Garamond", serif;
 
+    font-size: clamp(4.5rem, 10vw, 9rem);
     font-weight: 400;
 
-    font-size: clamp(4.5rem, 10vw, 9rem);
-
-    line-height: 0.78;
+    line-height: 0.8;
     letter-spacing: -3px;
 }
 
@@ -126,9 +185,9 @@ nav {
 }
 
 .hero-subtitle {
-    margin-top: 45px;
-
     max-width: 650px;
+
+    margin-top: 45px;
 
     color: var(--muted);
 
@@ -137,14 +196,17 @@ nav {
 }
 
 .hero-buttons {
-    margin-top: 40px;
-
     display: flex;
+
     gap: 15px;
+
+    margin-top: 40px;
 }
 
 
-/* ---------- BUTTONS ---------- */
+/* ========================================
+   BUTTONS
+   ======================================== */
 
 .button {
     display: inline-block;
@@ -155,12 +217,15 @@ nav {
 
     color: var(--text);
 
-    font-size: 0.8rem;
-
-    text-transform: uppercase;
+    font-size: 0.75rem;
     letter-spacing: 2px;
 
-    transition: 0.3s;
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s,
+        color 0.3s,
+        border-color 0.3s;
 }
 
 .button:hover {
@@ -175,19 +240,23 @@ nav {
 
 .button.secondary:hover {
     background: var(--text);
-    color: var(--background);
     border-color: var(--text);
+
+    color: var(--background);
 }
 
 
-/* ---------- SECTIONS ---------- */
+/* ========================================
+   PAGE SECTIONS
+   ======================================== */
 
 section {
+    width: 100%;
     max-width: 1200px;
 
     margin: auto;
 
-    padding: 120px 7%;
+    padding: 100px 7%;
 }
 
 .section-heading {
@@ -202,42 +271,75 @@ section {
 .section-number {
     color: var(--accent);
 
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 2px;
 }
 
 .section-heading h2 {
+    white-space: nowrap;
+
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 3rem;
+    font-size: clamp(2.8rem, 5vw, 4rem);
     font-weight: 400;
 }
 
 .section-line {
+    flex: 1;
+
     height: 1px;
 
     background: var(--border);
-
-    flex: 1;
 }
 
 
-/* ---------- ABOUT ---------- */
+/* ========================================
+   ABOUT PAGE
+   ======================================== */
+
+.about-page {
+    min-height: 70vh;
+}
 
 .about-content {
-    max-width: 750px;
+    max-width: 800px;
 }
 
 .about-content p {
+    margin-bottom: 25px;
+
     color: var(--muted);
 
-    margin-bottom: 20px;
-
+    font-size: 1rem;
     font-weight: 300;
+    line-height: 1.9;
+}
+
+.about-content p:first-child {
+    color: var(--text);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.8rem;
+    line-height: 1.5;
 }
 
 
-/* ---------- PROJECTS ---------- */
+/* ========================================
+   PROJECTS PAGE
+   ======================================== */
+
+.projects-intro {
+    max-width: 700px;
+
+    margin-bottom: 50px;
+}
+
+.projects-intro p {
+    color: var(--muted);
+
+    font-weight: 300;
+}
 
 .projects-grid {
     display: grid;
@@ -248,7 +350,7 @@ section {
 }
 
 .project-card {
-    min-height: 300px;
+    min-height: 330px;
 
     padding: 35px;
 
@@ -258,33 +360,38 @@ section {
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
 
-    transition: 0.3s;
+    transition:
+        transform 0.3s,
+        border-color 0.3s,
+        background 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
 
     border-color: var(--accent);
+
+    background: var(--background-hover);
 }
 
 .project-number {
+    margin-bottom: auto;
+
     color: var(--accent);
 
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 2px;
-
-    margin-bottom: auto;
 }
 
 .project-card h3 {
+    margin-top: 50px;
+    margin-bottom: 12px;
+
     font-family: "Cormorant Garamond", serif;
 
     font-size: 2rem;
     font-weight: 400;
-
-    margin-bottom: 10px;
 }
 
 .project-card p {
@@ -298,54 +405,108 @@ section {
 
     color: var(--accent);
 
-    font-size: 0.7rem;
-
+    font-size: 0.68rem;
     letter-spacing: 1px;
 
     text-transform: uppercase;
 }
 
+.project-links {
+    margin-top: 25px;
+}
 
-/* ---------- SKILLS ---------- */
+.project-link {
+    color: var(--text);
+
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: var(--accent);
+}
+
+.future-project {
+    opacity: 0.55;
+}
+
+
+/* ========================================
+   SKILLS PAGE
+   ======================================== */
+
+.skills-intro {
+    max-width: 700px;
+
+    margin-bottom: 50px;
+}
+
+.skills-intro p {
+    color: var(--muted);
+
+    font-weight: 300;
+}
 
 .skills-grid {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 20px;
+    gap: 25px;
 }
 
 .skill-category {
+    min-height: 230px;
+
     padding: 30px;
 
-    border-top: 1px solid var(--border);
+    background: var(--background-light);
+
+    border-top: 1px solid var(--accent);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    transition:
+        transform 0.3s,
+        border-color 0.3s;
+}
+
+.skill-category:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--accent);
 }
 
 .skill-category h3 {
+    margin-bottom: 20px;
+
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 400;
-
-    margin-bottom: 15px;
 }
 
 .skill-category p {
     color: var(--muted);
 
-    font-size: 0.9rem;
-
+    font-size: 0.88rem;
     line-height: 2;
 }
 
 
-/* ---------- CERTIFICATES ---------- */
+/* ========================================
+   CERTIFICATES PAGE
+   ======================================== */
 
 .certificate-intro {
     max-width: 700px;
 
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .certificate-intro p {
@@ -359,22 +520,19 @@ section {
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 25px;
+    gap: 30px;
 }
 
 .certificate-card {
-    min-height: 320px;
-
-    padding: 35px;
+    overflow: hidden;
 
     background: var(--background-light);
 
     border: 1px solid var(--border);
 
-    display: flex;
-    flex-direction: column;
-
-    transition: 0.3s;
+    transition:
+        transform 0.3s,
+        border-color 0.3s;
 }
 
 .certificate-card:hover {
@@ -383,29 +541,55 @@ section {
     border-color: var(--accent);
 }
 
+.certificate-image {
+    width: 100%;
+
+    padding: 18px;
+
+    background: #0d0d0d;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.certificate-image img {
+    width: 100%;
+    height: 280px;
+
+    object-fit: contain;
+
+    background: white;
+}
+
+.certificate-content {
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+}
+
 .certificate-type {
+    margin-bottom: 22px;
+
     color: var(--accent);
 
-    font-size: 0.7rem;
-
+    font-size: 0.65rem;
     letter-spacing: 2px;
 
     text-transform: uppercase;
-
-    margin-bottom: 35px;
 }
 
 .certificate-card h3 {
+    margin-bottom: 10px;
+
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 400;
 
-    line-height: 1.2;
-
-    margin-bottom: 15px;
+    line-height: 1.25;
 }
 
+.certificate-issuer,
 .certificate-card p {
     color: var(--muted);
 
@@ -413,29 +597,72 @@ section {
 }
 
 .certificate-tags {
+    margin-top: 18px;
+
     color: var(--muted);
 
-    font-size: 0.8rem;
-
-    margin-top: 20px;
+    font-size: 0.78rem;
+    line-height: 1.7;
 }
 
 .certificate-links {
-    margin-top: auto;
-
-    padding-top: 35px;
+    margin-top: 30px;
 }
 
 .future-certificate {
-    opacity: 0.6;
+    opacity: 0.55;
 }
 
 
-/* ---------- RESUME ---------- */
+/* ========================================
+   RESUME PAGE
+   ======================================== */
 
 .resume-page {
-    max-width: 1200px;
+    min-height: 70vh;
 }
+
+.resume-coming-soon {
+    max-width: 750px;
+
+    padding: 60px;
+
+    background: var(--background-light);
+
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent);
+}
+
+.resume-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--accent);
+
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+}
+
+.resume-coming-soon h3 {
+    margin-bottom: 15px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.resume-coming-soon p {
+    max-width: 550px;
+
+    color: var(--muted);
+
+    font-weight: 300;
+}
+
+
+/* Styles ready for your resume later */
 
 .resume-intro {
     max-width: 700px;
@@ -454,19 +681,18 @@ section {
 
     gap: 15px;
 
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 
 .resume-container {
     width: 100%;
-
     height: 1100px;
+
+    padding: 10px;
 
     background: var(--background-light);
 
     border: 1px solid var(--border);
-
-    padding: 10px;
 }
 
 .resume-container iframe {
@@ -479,9 +705,9 @@ section {
 }
 
 .resume-fallback {
-    text-align: center;
+    margin-top: 25px;
 
-    margin-top: 30px;
+    text-align: center;
 
     color: var(--muted);
 
@@ -490,91 +716,193 @@ section {
 
 .resume-fallback a {
     color: var(--accent);
-
-    transition: 0.3s;
-}
-
-.resume-fallback a:hover {
-    color: var(--text);
 }
 
 
-/* ---------- CONTACT ---------- */
+/* ========================================
+   CONTACT PAGE
+   ======================================== */
 
-.contact {
-    text-align: center;
+.contact-page {
+    min-height: 70vh;
+}
 
-    padding-top: 150px;
-    padding-bottom: 150px;
+.contact-content {
+    max-width: 900px;
 }
 
 .contact-label {
+    display: block;
+
+    margin-bottom: 15px;
+
     color: var(--accent);
 
-    text-transform: uppercase;
-    letter-spacing: 4px;
-
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+    letter-spacing: 3px;
 }
 
-.contact h2 {
+.contact-content h3 {
+    margin-bottom: 15px;
+
     font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(3rem, 7vw, 6rem);
-
+    font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 400;
-
-    margin: 20px 0;
 }
 
-.contact p {
+.contact-content > p {
+    max-width: 600px;
+
+    margin-bottom: 45px;
+
     color: var(--muted);
 
-    max-width: 550px;
+    font-weight: 300;
+}
 
-    margin: 0 auto 35px;
+.contact-links {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.contact-card {
+    min-height: 150px;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: var(--background-light);
+
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.3s,
+        border-color 0.3s,
+        background 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--accent);
+
+    background: var(--background-hover);
+}
+
+.contact-type {
+    color: var(--accent);
+
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.contact-value {
+    color: var(--text);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.4rem;
 }
 
 
-/* ---------- FOOTER ---------- */
+/* ========================================
+   FOOTER
+   ======================================== */
 
 footer {
-    border-top: 1px solid var(--border);
+    width: 100%;
 
-    padding: 30px 7%;
+    padding: 28px 7%;
 
     display: flex;
     justify-content: space-between;
 
+    border-top: 1px solid var(--border);
+
     color: var(--muted);
 
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
 }
 
 
-/* ---------- MOBILE ---------- */
+/* ========================================
+   TABLET
+   ======================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 750px) {
 
     nav {
+        position: relative;
+
         padding: 22px 6%;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
     }
 
     .nav-links {
-        gap: 15px;
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 12px 20px;
     }
 
-    .nav-links li:nth-child(2),
-    .nav-links li:nth-child(3) {
-        display: none;
+    .nav-links a {
+        font-size: 0.68rem;
     }
 
     .hero {
-        padding: 70px 7%;
+        min-height: auto;
+
+        padding: 100px 7%;
     }
 
     .hero h1 {
-        font-size: clamp(4rem, 18vw, 7rem);
+        font-size: clamp(4rem, 19vw, 7rem);
+    }
+
+    .hero-subtitle {
+        margin-top: 35px;
     }
 
     .hero-buttons {
@@ -582,15 +910,19 @@ footer {
     }
 
     section {
-        padding: 80px 7%;
+        padding: 75px 7%;
     }
 
     .section-heading {
         gap: 15px;
+
+        margin-bottom: 40px;
     }
 
     .section-heading h2 {
-        font-size: 2.4rem;
+        white-space: normal;
+
+        font-size: 2.7rem;
     }
 
     .projects-grid {
@@ -605,8 +937,18 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .certificate-image img {
+        height: auto;
+        max-height: 350px;
+    }
+
+    .resume-coming-soon {
+        padding: 35px 25px;
+    }
+
     .resume-actions {
         flex-direction: column;
+
         align-items: flex-start;
     }
 
@@ -614,9 +956,47 @@ footer {
         height: 700px;
     }
 
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+
     footer {
         flex-direction: column;
 
-        gap: 10px;
+        gap: 8px;
+
+        text-align: center;
+    }
+}
+
+
+/* ========================================
+   SMALL PHONES
+   ======================================== */
+
+@media (max-width: 450px) {
+
+    .hero h1 {
+        font-size: 4rem;
+
+        letter-spacing: -2px;
+    }
+
+    .section-number {
+        display: none;
+    }
+
+    .section-heading {
+        gap: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 2.4rem;
+    }
+
+    .project-card,
+    .skill-category,
+    .certificate-content {
+        padding: 25px;
     }
 }
