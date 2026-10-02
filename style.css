@@ -1031,6 +1031,32 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
+   /* =========================
+   RESUME - FINAL OVERRIDE
+========================= */
+
+.resume-page {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box;
+}
+
+.resume-viewer {
+    width: 100% !important;
+    max-width: none !important;
+    height: 1100px !important;
+    display: block !important;
+    box-sizing: border-box;
+}
+
+.resume-viewer iframe {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 100% !important;
+    height: 1100px !important;
+    display: block !important;
+    border: none;
+}
 
    
 }
