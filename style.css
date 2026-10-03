@@ -31,6 +31,7 @@ html {
 
 body {
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
 
@@ -675,104 +676,62 @@ section {
 }
 
 
-/* Contact Cards */
+/* ========================================
+   CONTACT CARDS
+   ======================================== */
 
 .contact-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 20px;
+    gap: 18px;
 }
 
 .contact-card {
-    position: relative;
-    overflow: hidden;
-
     min-width: 0;
-    min-height: 190px;
-    padding: 28px;
+
+    padding: 25px 24px;
 
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
+    gap: 20px;
 
     background: var(--background-light);
 
     border: 1px solid var(--border);
-    border-top: 2px solid var(--accent);
 
     transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background 0.3s ease;
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
 }
 
-.contact-card::before {
-    content: "";
+.contact-card-text {
+    min-width: 0;
 
-    position: absolute;
-    top: 0;
-    right: 0;
+    display: flex;
+    flex-direction: column;
 
-    width: 90px;
-    height: 90px;
-
-    background: var(--accent);
-
-    opacity: 0.04;
-
-    transform: translate(35%, -35%) rotate(45deg);
-
-    transition: opacity 0.3s ease;
+    gap: 8px;
 }
 
 .contact-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-3px);
 
-    border-color: var(--accent);
     background: var(--background-hover);
-}
-
-.contact-card:hover::before {
-    opacity: 0.09;
-}
-
-.contact-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-color: var(--accent);
 }
 
 .contact-type {
     color: var(--accent);
 
-    font-size: 0.63rem;
-    letter-spacing: 2px;
+    font-family: "Inter", sans-serif;
+
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
 
     text-transform: uppercase;
-}
-
-.contact-arrow {
-    color: var(--muted);
-
-    font-size: 1.2rem;
-
-    transition:
-        color 0.3s ease,
-        transform 0.3s ease;
-}
-
-.contact-card:hover .contact-arrow {
-    color: var(--accent);
-
-    transform: translate(3px, -3px);
-}
-
-.contact-card-bottom {
-    display: flex;
-    flex-direction: column;
-
-    gap: 5px;
 }
 
 .contact-value {
@@ -780,7 +739,7 @@ section {
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 1.45rem;
+    font-size: 1.25rem;
     font-weight: 400;
 
     line-height: 1.2;
@@ -788,12 +747,22 @@ section {
     overflow-wrap: anywhere;
 }
 
-.contact-description {
+.contact-arrow {
+    flex-shrink: 0;
+
     color: var(--muted);
 
-    font-size: 0.72rem;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.contact-card:hover .contact-arrow {
+    color: var(--accent);
+
+    transform: translate(3px, -3px);
 }
 
 
@@ -837,6 +806,10 @@ footer {
 
     .contact-links {
         grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 22px 24px;
     }
 }
 
@@ -939,10 +912,6 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .contact-card {
-        min-height: 150px;
-    }
-
     footer {
         flex-direction: column;
 
@@ -984,10 +953,10 @@ footer {
     }
 
     .contact-card {
-        padding: 24px;
+        padding: 20px;
     }
 
     .contact-value {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
     }
 }
