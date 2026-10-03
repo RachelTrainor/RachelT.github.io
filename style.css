@@ -622,7 +622,9 @@ section {
 }
 
 
-/* Resume Mobile */
+/* ========================================
+   RESUME MOBILE
+   ======================================== */
 
 @media (max-width: 750px) {
 
@@ -634,6 +636,277 @@ section {
     .resume-preview {
         max-width: 100%;
     }
-};
+}
+
+
+/* ========================================
+   CONTACT PAGE
+   ======================================== */
+
+.contact-page {
+    min-height: 70vh;
+}
+
+.contact-content {
+    max-width: 900px;
+}
+
+.contact-label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: var(--accent);
+
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+}
+
+.contact-content h3 {
+    margin-bottom: 15px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 400;
+}
+
+.contact-content > p {
+    max-width: 600px;
+    margin-bottom: 45px;
+
+    color: var(--muted);
+
+    font-weight: 300;
+}
+
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.contact-card {
+    min-height: 150px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: var(--background-light);
+
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.3s,
+        border-color 0.3s,
+        background 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--accent);
+    background: var(--background-hover);
+}
+
+.contact-type {
+    color: var(--accent);
+
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.contact-value {
+    color: var(--text);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.4rem;
+}
+
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    width: 100%;
+    padding: 28px 7%;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 1000px) {
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 750px) {
+
+    nav {
+        position: relative;
+
+        padding: 22px 6%;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 12px 20px;
+    }
+
+    .nav-links a {
+        font-size: 0.68rem;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding: 100px 7%;
+    }
+
+    .hero h1 {
+        font-size: clamp(4rem, 19vw, 7rem);
+    }
+
+    .hero-subtitle {
+        margin-top: 35px;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    section {
+        padding: 75px 7%;
+    }
+
+    .section-heading {
+        gap: 15px;
+
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+        white-space: normal;
+
+        font-size: 2.7rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certificate-image img {
+        height: auto;
+        max-height: 350px;
+    }
+
+    .resume-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .resume-preview {
+        max-width: 100%;
+    }
+
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+}
+
+
+/* ========================================
+   SMALL PHONES
+   ======================================== */
+
+@media (max-width: 450px) {
+
+    .hero h1 {
+        font-size: 4rem;
+
+        letter-spacing: -2px;
+    }
+
+    .section-number {
+        display: none;
+    }
+
+    .section-heading {
+        gap: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 2.4rem;
+    }
+
+    .project-card,
+    .skill-category,
+    .certificate-content {
+        padding: 25px;
     }
 }
