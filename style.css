@@ -293,7 +293,9 @@ section {
     max-width: 800px;
 }
 
-.about-content p {
+.about-content p,
+.about-text p,
+.about-text p:first-child {
     margin-bottom: 25px;
 
     color: var(--muted);
@@ -303,6 +305,7 @@ section {
     font-weight: 300;
 
     line-height: 1.9;
+    letter-spacing: normal;
 }
 
 
@@ -593,21 +596,28 @@ section {
 .resume-page .section-intro {
     max-width: 800px;
     margin-bottom: 30px;
+
+    color: var(--muted);
+    font-weight: 300;
 }
 
 .resume-actions {
     display: flex;
     gap: 15px;
+
     margin-bottom: 45px;
+
     flex-wrap: wrap;
 }
 
 .resume-preview {
     width: 100%;
     max-width: 950px;
+
     margin: 0 auto;
 
     background: #ffffff;
+
     border: 1px solid var(--border);
 }
 
@@ -617,25 +627,9 @@ section {
 
 .resume-preview img {
     display: block;
+
     width: 100%;
     height: auto;
-}
-
-
-/* ========================================
-   RESUME MOBILE
-   ======================================== */
-
-@media (max-width: 750px) {
-
-    .resume-actions {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .resume-preview {
-        max-width: 100%;
-    }
 }
 
 
@@ -680,6 +674,9 @@ section {
     font-weight: 300;
 }
 
+
+/* Contact Cards */
+
 .contact-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -688,8 +685,12 @@ section {
 }
 
 .contact-card {
-    min-height: 150px;
-    padding: 25px;
+    position: relative;
+    overflow: hidden;
+
+    min-width: 0;
+    min-height: 190px;
+    padding: 28px;
 
     display: flex;
     flex-direction: column;
@@ -698,25 +699,80 @@ section {
     background: var(--background-light);
 
     border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
 
     transition:
-        transform 0.3s,
-        border-color 0.3s,
-        background 0.3s;
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.contact-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 90px;
+    height: 90px;
+
+    background: var(--accent);
+
+    opacity: 0.04;
+
+    transform: translate(35%, -35%) rotate(45deg);
+
+    transition: opacity 0.3s ease;
 }
 
 .contact-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
 
     border-color: var(--accent);
     background: var(--background-hover);
 }
 
+.contact-card:hover::before {
+    opacity: 0.09;
+}
+
+.contact-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .contact-type {
     color: var(--accent);
 
-    font-size: 0.65rem;
+    font-size: 0.63rem;
     letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.contact-arrow {
+    color: var(--muted);
+
+    font-size: 1.2rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.contact-card:hover .contact-arrow {
+    color: var(--accent);
+
+    transform: translate(3px, -3px);
+}
+
+.contact-card-bottom {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
 }
 
 .contact-value {
@@ -724,7 +780,20 @@ section {
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 1.4rem;
+    font-size: 1.45rem;
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    overflow-wrap: anywhere;
+}
+
+.contact-description {
+    color: var(--muted);
+
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
 }
 
 
@@ -870,6 +939,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .contact-card {
+        min-height: 150px;
+    }
+
     footer {
         flex-direction: column;
 
@@ -908,5 +981,13 @@ footer {
     .skill-category,
     .certificate-content {
         padding: 25px;
+    }
+
+    .contact-card {
+        padding: 24px;
+    }
+
+    .contact-value {
+        font-size: 1.3rem;
     }
 }
